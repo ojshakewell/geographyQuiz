@@ -1,0 +1,29 @@
+body{
+	/*("https://images.nasa.gov/#/details-a-sky-view-of-earth-from-suomi-npp_16611703184_o.html");*/
+	background-image: url("../images/earthimage.jpg");
+}
+
+div {
+	background: rgba(76, 175, 80);
+}
+
+.row {
+	margin: 15px;
+	padding: 10px;
+}
+
+.jumbotron, .col-md-5 {
+/*	opacity: 0.5;*/
+	background: rgba(76, 175, 80, 0.7);
+	color: #fff;
+}
+
+.col-md-5 {
+	margin: 5px;
+	padding: 5px;
+}
+
+button {
+	color: #000;
+
+}

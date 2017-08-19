@@ -6,24 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these--> 
 
-	<title>Trivia Game</title>
+	<title>Geography Quiz</title>
 
-	<!-- Latest compiled and minified CSS -->
+	<!-- BOOTSTRAP: Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" href="assets/javascript/app.js">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	
+	<script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
 </head>
 <body>
+	<main class = "container">
+		<div class = "row">
+			<div class = "col-md-12">
+				<div class="jumbotron">
+					<h1 class="display-3">Geography Quiz</h1>
+					<hr class="my-4">
+					<h3>Score</h3>
+					<h2 id = "clock">Time Remaining: </h2>
+				</div>
+			</div>
+		</div>
+
+		<div class = "row">
+			<div class = "col-md-1"></div>
+			<div class = "col-md-5">
+				<h2>Which American airport has eight runways, the most in the world?</h2>
+				<form >
+					<input type= "radio" name = "airport" value = "JFK">Kennedy Inernational, New York<br />
+					<input type= "radio" name = "airport" value = "ORD">O'hare International, Chicago<br />
+					<input type= "radio" name = "airport" value = "DFW">Dallas-Fort Worth International<br />
+					<input type= "radio" name = "airport" value = "ATL">Hartsfield-Jackson International, Atlanta<br />
+					<input type= "radio" name = "airport" value = "LSV">Nellis Air Force Base, Las Vegas
+				</form>
+			</div>
+
+			<div class = "col-md-5">
+				<h2>Which of these cities has never been a capitol of the state of Georgia?</h2>
+				<form >
+					<input type= "radio" name = "georgia" value = "athens">Athens<br />
+					<input type= "radio" name = "georgia" value = "milledgeville">Milledgeville<br />
+					<input type= "radio" name = "georgia" value = "agusta">Augusta<br />
+					<input type= "radio" name = "georgia" value = "savannah">Savannah<br />
+					<input type= "radio" name = "georgia" value = "macon">Macon
+				</form>
+			</div>
+		</div>
 
 
+		<div class = "row">
+			<div class = "col-md-1"></div>
+			<div class = "col-md-5">
+				<h2>Sir Stamford Raffles founded this British colony on a busy waterway in 1819.</h2>
+				<form >
+					<input type= "radio" name = "colony" value = "hongkong">Hong Kong<br />
+					<input type= "radio" name = "colony" value = "toronto">Toronto<br />
+					<input type= "radio" name = "colony" value = "singapore">Singapore<br />
+					<input type= "radio" name = "colony" value = "bombay">Bombay<br />
+					<input type= "radio" name = "colony" value = "capetown">Cape Town
+				</form>
+			</div>
 
-
-
+			<div class = "col-md-5">
+				<h2>In 1881, which country began constuction of the Panama Canal?</h2>
+				<form >
+					<input type= "radio" name = "canal" value = "panama">Panama<br />
+					<input type= "radio" name = "canal" value = "spain">Spain<br />
+					<input type= "radio" name = "canal" value = "usa">The United States of America<br />
+					<input type= "radio" name = "canal" value = "france">France<br />
+					<input type= "radio" name = "canal" value = "colombia">Colombia
+				</form>
+			</div>
+		</div>
+	</main><!--end .container-->
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-	<script type="text/javascript" src="assets/css/style.css"></script>
+	    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 </html>

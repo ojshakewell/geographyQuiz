@@ -7,20 +7,21 @@
 // The game ends when the time runs out. The page will reveal the number of questions that players answer correctly and incorrectly.
 //when (timer === 0) display correct answer count
 
-var minutes = 2
-var seconds = 5;
+var correctAnswers = 0;
+var incorrectAnswers = 0;
+var seconds = 2 * 60;
 
-console.log(121%60)
+var answerKey = ["ORD","athens","singapore","france"];
+var answers = [];
+
+displayClock();
 
 var interval = setInterval(countdown, 1000);
 
 function countdown(){
 	if (seconds > 0){	
-		//console.log("timer:",seconds);
+
 		displayClock();
-		--seconds;
-	// } else (if seconds === 59)
-	// 	--minutes;
 	} else {	
 		clearInterval(interval);
 		calculateScore();
@@ -28,22 +29,56 @@ function countdown(){
 }//end .countdown
 
 function displayClock(){
-	$('#clock').text("Time Remaining: " + minutes + ":" + seconds);
-}
+
+	var divider = ":"
+
+	if (seconds % 60 <= 9){
+		divider = ":0";
+	}
+
+	var minutes = Math.trunc(seconds / 60);
+
+	$('#clock').text("Time Remaining: " + minutes + divider + seconds % 60);
+
+	--seconds;
+}//end .displayClock
 
 function calculateScore(){
-	var score = 0;
+
+	$('#clock').text("Time's up!");	
+
 	console.log("calculate score here");
 
+//$("form input:nthchild(" + (i+1) + "")
+	answers[0] = $("input[name=airport]:checked").val();
+	console.log(answers[0]);
+
+	answers[1] = $("input[name=georgia]:checked").val();
+	console.log(answers[1]);
+
+	answers[2] = $("input[name=colony]:checked").val();
+	console.log(answers[2]);
+
+	answers[3] = $("input[name=canal]:checked").val();
+	console.log(answers[3]);
 
 
+	for (var i = 0; i < answerKey.length; i++) {
+
+		if (answers[i] === answerKey[i]){
+			correctAnswers++;
+		} else {
+			incorrectAnswers++;
+		}
+	}
+
+	$("#correct").text("Correct Answers: " + correctAnswers);
+
+	$("#incorrect").text("Incorrect Answers: " + incorrectAnswers);
+
+}//end .calculateScore
 
 
-
-	$('#clock').text('Score: ',score);	
-}
-
-// Don't forget to include a countdown timer.
 
 // Option Two: Advanced Assignment (Timed Questions)
 

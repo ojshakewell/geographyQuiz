@@ -1,33 +1,38 @@
-// Option One: Basic Quiz (Timed Form)
-// You'll create a trivia form with multiple choice or true/false options (your choice).
-
-// The player will have a limited amount of time to finish the quiz. 
-//timer()
-
-// The game ends when the time runs out. The page will reveal the number of questions that players answer correctly and incorrectly.
-//when (timer === 0) display correct answer count
-
-var correctAnswers = 0;
-var incorrectAnswers = 0;
-var seconds = 2 * 60;
-
+var correctAnswers;
+var incorrectAnswers;
+var seconds;
 var answerKey = ["ORD","athens","singapore","france"];
-var answers = [];
+var answers;
+var interval;
 
+reset();
 displayClock();
 
-var interval = setInterval(countdown, 1000);
 
+//Runs the countdown funtion once per second after the start button is clicked
+$("#start").click(function(){
+	reset();
+//the buttons need to  prevent double clicking
+	interval = setInterval(countdown, 1000);
+	//need to display questions only after the start button is clicked
+});
+
+$("#end").click(function(){
+	seconds = 0;
+});
+
+
+//Runs the clock timer down until the time reaches 00:00, then calculates score
 function countdown(){
-	if (seconds > 0){	
-
+	if (seconds != 0){	
 		displayClock();
-	} else {	
-		clearInterval(interval);
+	} else {
+		clearInterval(interval);	
 		calculateScore();
 	}
 }//end .countdown
 
+//Updates the time on the clock and send displays the time in the html page
 function displayClock(){
 
 	var divider = ":"
@@ -43,26 +48,26 @@ function displayClock(){
 	--seconds;
 }//end .displayClock
 
+// when the time runs out, determine if the answer is correct, and display score.
 function calculateScore(){
 
 	$('#clock').text("Time's up!");	
+	/*	// this code should loop through the radio buttons to get the user answers, try using an N-th child.
+	
+	for (var i = 0; i < Things.length; i++) {
+		$("form input:nthchild(" + (i+1) + "")
+	}*/
 
-	console.log("calculate score here");
-
-//$("form input:nthchild(" + (i+1) + "")
+	//here is the lazy way to get the answers form the radio buttons
 	answers[0] = $("input[name=airport]:checked").val();
-	console.log(answers[0]);
 
 	answers[1] = $("input[name=georgia]:checked").val();
-	console.log(answers[1]);
 
 	answers[2] = $("input[name=colony]:checked").val();
-	console.log(answers[2]);
 
 	answers[3] = $("input[name=canal]:checked").val();
-	console.log(answers[3]);
 
-
+	//loop to compare the user answers to correct answers.
 	for (var i = 0; i < answerKey.length; i++) {
 
 		if (answers[i] === answerKey[i]){
@@ -72,13 +77,20 @@ function calculateScore(){
 		}
 	}
 
+
+	//Display score
 	$("#correct").text("Correct Answers: " + correctAnswers);
 
 	$("#incorrect").text("Incorrect Answers: " + incorrectAnswers);
 
 }//end .calculateScore
 
-
+function reset(){
+	seconds = 2 * 60;
+	answers = [];
+	correctAnswers = 0;
+	incorrectAnswers = 0;
+}
 
 // Option Two: Advanced Assignment (Timed Questions)
 

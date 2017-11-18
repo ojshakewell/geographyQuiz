@@ -11,7 +11,8 @@ displayClock();
 //Runs the countdown funtion once per second after the start button is clicked
 $("#start").click(function(){
 	reset();
-	//add code:the buttons need to  prevent double clicking
+	//prevent double clicking
+	event.preventDefault();
 	interval = setInterval(countdown, 1000);
 	//Add code: need to display questions only after the start button is clicked
 });

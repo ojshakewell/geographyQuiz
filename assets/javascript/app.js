@@ -8,13 +8,12 @@ var interval;
 reset();
 displayClock();
 
-
 //Runs the countdown funtion once per second after the start button is clicked
 $("#start").click(function(){
 	reset();
-//the buttons need to  prevent double clicking
+	//add code:the buttons need to  prevent double clicking
 	interval = setInterval(countdown, 1000);
-	//need to display questions only after the start button is clicked
+	//Add code: need to display questions only after the start button is clicked
 });
 
 $("#end").click(function(){
@@ -58,7 +57,7 @@ function calculateScore(){
 		$("form input:nthchild(" + (i+1) + "")
 	}*/
 
-	//here is the lazy way to get the answers form the radio buttons
+	//here is the lazy way to get the answers form the radio buttons, ideally will add loop later
 	answers[0] = $("input[name=airport]:checked").val();
 
 	answers[1] = $("input[name=georgia]:checked").val();
@@ -85,25 +84,10 @@ function calculateScore(){
 
 }//end .calculateScore
 
+//reset default values
 function reset(){
 	seconds = 2 * 60;
 	answers = [];
 	correctAnswers = 0;
 	incorrectAnswers = 0;
 }
-
-// Option Two: Advanced Assignment (Timed Questions)
-
-// You'll create a trivia game that shows only one question until the player answers it or their time runs out.
-// If the player selects the correct answer, show a screen congratulating them for choosing the right option. After a few seconds, display the next question -- do this without user input.
-
-// The scenario is similar for wrong answers and time-outs.
-
-
-// If the player runs out of time, tell the player that time's up and display the correct answer. Wait a few seconds, then show the next question.
-// If the player chooses the wrong answer, tell the player they selected the wrong option and then display the correct answer. Wait a few seconds, then show the next question.
-
-
-// On the final screen, show the number of correct answers, incorrect answers, and an option to restart the game (without reloading the page).
-
-
